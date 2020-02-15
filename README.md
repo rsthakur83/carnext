@@ -1,21 +1,26 @@
-#######
-Answer to Question 1
 
-##Step1) Download below three yaml file on minikube and 
+# Answer to Question 1
 
-##Step2) run kubectl create -f . 
+## Step1) Download below three yaml file on minikube and 
 
-####db-tier.yaml
-####secrets.yaml
-####nginx-ingress.yaml
-####app-tier.yaml
+## Step2) run kubectl create -f . 
 
-Step3) To access the frontend applocation run curl http://localhost/wordpress
+db-tier.yaml
+
+secrets.yaml
+
+nginx-ingress.yaml
+
+app-tier.yaml
+
+### Step3) To access the frontend applocation run curl http://localhost/wordpress
 
 
 
 
-Answer to Question 2
+
+
+# Answer to Question 2
 
 I will setup three tier architecture in AWS and below is the list of AWS services I will use:
 
@@ -30,6 +35,7 @@ I will setup three tier architecture in AWS and below is the list of AWS service
 9) S3 Bucket
 10) WAF
 
+![alt text](https://github.com/rsthakur83/carnext/blob/master/Three%20Tier%20Architecture.jpg "Three Tier Architecture")
 
 
 Create VPC which has public, private subnet. Public subnet consists of web tier while in private subnet application server and database exists.
@@ -40,13 +46,15 @@ ASG scale up & down the instance whenever alarm get triggered. CloudWatch monito
 To fight against the malicious web request, attach the WAF service with Cloudfront and add the custom rule in WAF based on your requirement.
 
 
-Answer to Question 3
+
+
+# Answer to Question 3
 
 To migrate the web application running on premise to AWS follow below steps:
 
 1)	Establish the connectivity between on-premise to AWS using VPN or AWS direct connect.
 2)	Once the VPN connection established upload the content to S3 directly OR use AWS data sync service to transfer the data from on-premises to AWS.
-3)	Use the three tier architecture, first tier ALB  Web Tier (ASG) , Second Tier Internal ALB  Application server (ASG). Deploy the application uploaded (S3 bucket) onto the ec2 instance in second tier.
+3)	Use the three tier architecture, first tier ALB --> Web Tier (ASG) , Second Tier Internal ALB --> Application server (ASG). Deploy the application uploaded (S3 bucket) onto the ec2 instance in second tier.
 4)	Transferring application data is easy but main challenge comes when we want to do database migration. For the DB migration either we can take the database dump and upload onto s3 bucket then ec2 to restore onto to the RDS instance using mysqldump command. But in case of smooth migration AWS provide DMS service which we can use to transfer large amount database on to AWS. This service help in migrate large size of database without any downtime and with less effort, also can change the schema of source DB to destination DB.
 Let’s consider that we have master & slave database on premises which we want to migrate to AWS. First migrate the slave database using DMS service to AWS once the slave DB instance in complete sync with on premise RDS instance (named as M2) and make M2 as slave of on premises master database (named as M1). Once the M2 binlog is same as that of M1 database then create the slave S2 instance from M1. Now we have master and slave database in sync with On premises database’s, it’s time to do the switchover the traffic without downtime. Begin the switchover by moving read only traffic first by pointing one of the app server to the slave S2. Since slave is read-only, it offers easy switchback to the source DB without data loss in case of an issue. After careful testing, you can switch all remaining read-only APP servers to the slave. Use some sort of queue software like Kafka, RabbitMQ to store the incoming request during the switchover period to M2 database so that these requests can be processed to the new database. Following switching read traffic to S2, you can begin read-write traffic switch to M2 in the same manner. The benefit of this approach is since the data is replicated in both ways you can easily switch back to the source DB without losing any data in case of an issue.
 
