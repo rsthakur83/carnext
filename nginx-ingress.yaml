@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1  
+kind: Ingress
+metadata:  
+  name: nginx-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.org/ssl-services: "wordpress"
+  labels:
+    app: mywordpress
+spec:  
+  tls:
+    - hosts:
+      - localhost
+      secretName: tls-certificate
+  rules:
+  - host: localhost
+    http:
+      paths:
+      - path: /wordpress
+        backend:
+          serviceName: wordpress
+          servicePort: 80
