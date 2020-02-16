@@ -1,13 +1,13 @@
-Answer to Question 1
+#Answer to Question 1
 
-Step1) Download below three yaml file on minikube and 
+##Step1) Download below three yaml file on minikube and 
 
-Step2) run kubectl create -f . 
+##Step2) run kubectl create -f . 
 
-db-tier.yaml
-secrets.yaml
-nginx-ingress.yaml
-app-tier.yaml
+####db-tier.yaml
+####secrets.yaml
+####nginx-ingress.yaml
+####app-tier.yaml
 
 Step3) To access the frontend applocation run curl http://localhost/wordpress
 
