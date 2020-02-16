@@ -33,6 +33,7 @@ I will setup three tier architecture in AWS and below is the list of AWS service
 9) S3 Bucket
 10) WAF
 
+![alt text](https://github.com/rsthakur83/carnext/blob/master/Three%20Tier%20Architecture.jpg "Three Tier Architecture")
 
 
 Create VPC which has public, private subnet. Public subnet consists of web tier while in private subnet application server and database exists.
