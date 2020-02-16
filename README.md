@@ -5,7 +5,7 @@
 
 ## Step2) change to carnext repo using 
 ### cd carnext directory 
-### then run --> kubectl create -f . 
+### then run --> kubectl create -f .  to deploy all three tiers
 
 db-tier.yaml
 
