@@ -5,12 +5,15 @@
 
 ##Step2) run kubectl create -f . 
 
-####db-tier.yaml
-####secrets.yaml
-####nginx-ingress.yaml
-####app-tier.yaml
+db-tier.yaml
 
-Step3) To access the frontend applocation run curl http://localhost/wordpress
+secrets.yaml
+
+nginx-ingress.yaml
+
+app-tier.yaml
+
+### Step3) To access the frontend applocation run curl http://localhost/wordpress
 
 
 
