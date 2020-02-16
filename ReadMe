@@ -1,13 +1,4 @@
-1. Please create a 3 tier environment in Minikube with:
--------------------------------------------------------
-
-- a HTTP frontend of choice
-
-- App server (anything that read a DB)
-
-- DB of choice
-
-Answer:
+Answer to Question 1
 
 Step1) Download below three yaml file on minikube and 
 
@@ -23,9 +14,7 @@ Step3) To access the frontend applocation run curl http://localhost/wordpress
 
 
 
-
-
-
+Answer to Question 2
 
 I will setup three tier architecture in AWS and below is the list of AWS services I will use:
 
@@ -49,9 +38,12 @@ To further improve the application tier performance, use the ElastiCache service
 ASG scale up & down the instance whenever alarm get triggered. CloudWatch monitor the metric like CPU, disk, memory etc. and whenever metric breach the threshold limit it trigger the alarm which take the respective action on ASG.
 To fight against the malicious web request, attach the WAF service with Cloudfront and add the custom rule in WAF based on your requirement.
 
-To migrate the web application running on premises to AWS follow below steps:
 
-1)	Establish the connectivity between on-premises to AWS using VPN or AWS direct connect.
+Answer to Question 3
+
+To migrate the web application running on premise to AWS follow below steps:
+
+1)	Establish the connectivity between on-premise to AWS using VPN or AWS direct connect.
 2)	Once the VPN connection established upload the content to S3 directly OR use AWS data sync service to transfer the data from on-premises to AWS.
 3)	Use the three tier architecture, first tier ALB  Web Tier (ASG) , Second Tier Internal ALB  Application server (ASG). Deploy the application uploaded (S3 bucket) onto the ec2 instance in second tier.
 4)	Transferring application data is easy but main challenge comes when we want to do database migration. For the DB migration either we can take the database dump and upload onto s3 bucket then ec2 to restore onto to the RDS instance using mysqldump command. But in case of smooth migration AWS provide DMS service which we can use to transfer large amount database on to AWS. This service help in migrate large size of database without any downtime and with less effort, also can change the schema of source DB to destination DB.
