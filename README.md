@@ -3,7 +3,7 @@
 
 ## Step1) Download below three yaml file on minikube and 
 
-##Step2) run kubectl create -f . 
+## Step2) run kubectl create -f . 
 
 db-tier.yaml
 
