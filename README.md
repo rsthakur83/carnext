@@ -18,6 +18,8 @@ app-tier.yaml
 
 
 
+
+
 # Answer to Question 2
 
 I will setup three tier architecture in AWS and below is the list of AWS services I will use:
@@ -42,6 +44,8 @@ For the fast delivery of static content use the AWS CloudFront service along wit
 To further improve the application tier performance, use the ElastiCache service which will cache the database content, frequent access data, access pattern.
 ASG scale up & down the instance whenever alarm get triggered. CloudWatch monitor the metric like CPU, disk, memory etc. and whenever metric breach the threshold limit it trigger the alarm which take the respective action on ASG.
 To fight against the malicious web request, attach the WAF service with Cloudfront and add the custom rule in WAF based on your requirement.
+
+
 
 
 # Answer to Question 3
