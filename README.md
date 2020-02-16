@@ -4,8 +4,7 @@
 ## Step1) Download below three yaml file on minikube using below git command 
 ## git clone https://github.com/rsthakur83/carnext.git 
 
-## Step2) change to carnext repo using 
-### cd carnext directory 
+## Step2) change to carnext repo using cd carnext directory 
 ### then run --> kubectl create -f .  to deploy all three tiers
 
 db-tier.yaml
