@@ -1,9 +1,10 @@
 
 # Answer to Question 1
 
-## Step1) Download below three yaml file on minikube and 
+## Step1) Download below three yaml file on minikube using command git clone https://github.com/rsthakur83/carnext.git 
 
-## Step2) run kubectl create -f . 
+## Step2) change to carnext repo using 
+### cd carnext then run command --> kubectl create -f . 
 
 db-tier.yaml
 
