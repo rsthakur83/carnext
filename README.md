@@ -15,7 +15,7 @@ Step3) To access the frontend applocation run curl http://localhost/wordpress
 
 
 
-Answer to Question 2
+# Answer to Question 2
 
 I will setup three tier architecture in AWS and below is the list of AWS services I will use:
 
@@ -40,7 +40,7 @@ ASG scale up & down the instance whenever alarm get triggered. CloudWatch monito
 To fight against the malicious web request, attach the WAF service with Cloudfront and add the custom rule in WAF based on your requirement.
 
 
-Answer to Question 3
+# Answer to Question 3
 
 To migrate the web application running on premise to AWS follow below steps:
 
