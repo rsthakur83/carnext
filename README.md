@@ -15,7 +15,8 @@ nginx-ingress.yaml
 
 app-tier.yaml
 
-### Step3) To access the frontend applocation run curl http://localhost/wordpress
+### Step3) To access the frontend application which is wordpress in our case run curl http://localhost/wordpress
+
 
 
 
